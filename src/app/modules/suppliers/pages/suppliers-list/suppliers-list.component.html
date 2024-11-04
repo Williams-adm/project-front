@@ -1,0 +1,36 @@
+<header>
+    <h1>Proveedores</h1>
+</header>
+
+<section class="button-container">
+    <p-button routerLink="../home" label="Regresar" class="custom-button"></p-button>
+</section>
+
+<div class="table-container">
+    <p-table [value]="supplierList" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '70rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:5%">#</th>
+                <th style="width:20%">Nombre</th>
+                <th style="width:10%">RUC</th>
+                <th style="width:20%">Email</th>
+                <th style="width:20%">Dirección</th>
+                <th style="width:15%">Teléfono</th>
+                <th style="width:10%">Opciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-supplier let-i="rowIndex">
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ supplier.name }}</td>
+                <td>{{ supplier.ruc }}</td>
+                <td>{{ supplier.email }}</td>
+                <td>{{ supplier.address }}</td>
+                <td>{{ supplier.phone }}</td>
+                <td>
+                    <p-button (click)="deleteSupplier(supplier.id)" icon="pi pi-trash" label="Eliminar"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

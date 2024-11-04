@@ -1,0 +1,38 @@
+<header>
+    <h1>SUCURSALES</h1>
+</header>
+
+<section class="button-container">
+        <p-button routerLink="../home" label="Regresar" class="custom-button"></p-button>
+</section>
+
+<div class="table-container">
+    <p-table [value]="branchesList" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '80rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:5%">#</th>
+                <th style="width:20%">Nombre</th>
+                <th style="width:10%">País</th>
+                <th style="width:10%">Ciudad</th>
+                <th style="width:20%">Dirección</th>
+                <th style="width:20%">Email</th>
+                <th style="width:20%">Teléfono</th>
+                <th style="width:10%">Opciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-branch let-i="rowIndex">
+            <tr>
+                <td>{{ i + 1 }}</td>
+                <td>{{ branch.name }}</td>
+                <td>{{ branch.country }}</td>
+                <td>{{ branch.city }}</td>
+                <td>{{ branch.address }}</td>
+                <td>{{ branch.email }}</td>
+                <td>{{ branch.phone }}</td>
+                <td>
+                    <p-button (click)="deleteBranch(branch.id)" icon="pi pi-trash" label="Eliminar"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
